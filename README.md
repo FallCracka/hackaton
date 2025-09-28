@@ -264,8 +264,8 @@ uv run jupyter notebook
 
 ## Полезные ссылки
 
-- **Основная документация:** https://gitflic.ru/project/lct-prefinal/lct-prefinal
-- **Ответы на вопросы ТЗ:** https://cloud.dit.mos.ru/s/zZnx4YBoXQBJKab (пароль: ejjAimkbF7)
-- **Таблица прогресса:** https://docs.google.com/spreadsheets/d/1R41onHL5taYi5QipgmKFnIGbZ_yESPNnYZqVR6ORSaI/edit
+- **Репризиторий:** https://gitflic.ru/project/lct-prefinal/lct-prefinal
+- **ТЗ:** https://cloud.dit.mos.ru/s/zZnx4YBoXQBJKab (пароль: ejjAimkbF7)
+- **ответы на вопросы:** https://docs.google.com/spreadsheets/d/1R41onHL5taYi5QipgmKFnIGbZ_yESPNnYZqVR6ORSaI/edit
 - **ГОСТ Р 72118-2025:** Методология разработки систем с конструктивной информационной безопасностью
 
