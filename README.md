@@ -107,8 +107,12 @@ cd lct-ats
 uv run launcher.py --twin
 
 # Терминал 2 - Цифровой двойник
-cd LCT_win64
-.\twin.exe
+cd ~/Downloads/LCT_linux
+# Дадим права на выполнение
+chmod +x LCT.x86_64
+
+# Запустим цифровой двойник
+./LCT.x86_64
 
 # Терминал 3 - Клиент
 cd lct-client
@@ -146,8 +150,12 @@ cd lct-ats
 uv run launcher.py --twin
 
 # Терминал 2 - Цифровой двойник
-cd LCT_linux
-./twin.x86_64
+cd ~/Downloads/LCT_linux
+# Дадим права на выполнение
+chmod +x LCT.x86_64
+
+# Запустим цифровой двойник
+./LCT.x86_64
 
 # Терминал 3 - Клиент
 cd lct-client
