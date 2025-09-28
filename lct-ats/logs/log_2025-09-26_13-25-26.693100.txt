@@ -1,0 +1,20 @@
+-----------------------13:25-----------------------
+[13:25]::[LCT-ATS]::INIT::AGTS-ATS, версия 2.0.0
+[13:25]::[LCT-ATS]::INIT::UDP(c) <- (uid=DcQP) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) <- (uid=IJXE) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) <- (uid=FVVr) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) -> (uid=XAxV) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) -> (uid=AcFi) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) -> (uid=Ditt) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) -> (uid=QojI) инициализирован.
+[13:25]::[LCT-ATS]::INIT::UDP(c) -> (uid=cOYv) инициализирован.
+[13:25]::[LCT-ATS]::INIT::Загрузка завершена.
+[13:25]::[LCT-ATS]::INIT::Адрес сервера (mission_receiver): http://127.0.0.1:13501
+[13:25]::[LCT-ATS]::INFO::Ожидаю ввод команд (/help для получения списка доступных команд)...
+[13:25]::[LCT-ATS]::WARN::Интерактивный ввод команд поддерживается только в Windows. Используйте /q для выхода.
+[13:26]::[LCT-ATS]::INFO::Выполнена команда: /twin.exe
+[13:26]::[LCT-ATS]::ERROR::Неизвестная команда: /twin.exe
+[13:26]::[LCT-ATS]::INFO::Выполнена команда: uv run launcher.py --twin
+[13:26]::[LCT-ATS]::ERROR::Ошибка ввода: команда должна начинаться с '/'
+[13:27]::[LCT-ATS]::INFO::Выполнена команда: /uv run launcher.py --twin
+[13:27]::[LCT-ATS]::ERROR::Неизвестная команда: /uv run launcher.py --twin
