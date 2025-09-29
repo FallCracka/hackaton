@@ -105,7 +105,7 @@ cd ../lct-client && uv sync
 
 
 # Терминал 1 - Цифровой двойник
-cd ~/Downloads/LCT_linux
+cd ~/Downloads/LCT_twin_win
 # Дадим права на выполнение
 chmod +x LCT.x86_64
 
