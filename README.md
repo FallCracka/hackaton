@@ -83,10 +83,12 @@
 powershell -ExecutionPolicy ByPass -c "irm https://gitflic.ru/project/lct-prefinal/lct-prefinal/blob/raw?file=scripts%2Finstall_win.ps1 | iex"
 ```
 
+
+
 #### Ручная установка:
 ```powershell
 # Установка uv
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+powershell -ExecutionPolicy ByPass -c "irm https://gitflic.ru/project/lct-prefinal/lct-prefinal/blob/raw?file=scripts%2Finstall_win.ps1 | iex"
 
 # Клонирование репозиториев
 git clone https://gitflic.ru/project/lct-prefinal/lct-ats.git
@@ -102,6 +104,8 @@ cd ../lct-client && uv sync
 
 
 # Терминал 1 - Цифровой двойник
+# Используйте готовый бинарный файл twin.exe, расположенный в директории с ЦД
+
 cd ~/Downloads/LCT_twin_win
 # Дадим права на выполнение
 chmod +x LCT.x86_64
@@ -109,13 +113,15 @@ chmod +x LCT.x86_64
 # Запустим цифровой двойник
 ./LCT.x86_64
 
-# Терминал 2 - Клиент
+# Терминал 2 - АСО
+cd lct-ats
+uv run launcher.py --twin
+
+# Терминал 3 - Клиент
 cd lct-client
 uv run jupyter notebook
 
-# Терминал 3 - АСО
-cd lct-ats
-uv run launcher.py --twin
+
 ```
 
 
