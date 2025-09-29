@@ -102,11 +102,9 @@ cd ../lct-client && uv sync
 
 #### Запуск:
 ```powershell
-# Терминал 1 - АСО
-cd lct-ats
-uv run launcher.py --twin
 
-# Терминал 2 - Цифровой двойник
+
+# Терминал 1 - Цифровой двойник
 cd ~/Downloads/LCT_linux
 # Дадим права на выполнение
 chmod +x LCT.x86_64
@@ -114,10 +112,15 @@ chmod +x LCT.x86_64
 # Запустим цифровой двойник
 ./LCT.x86_64
 
-# Терминал 3 - Клиент
+# Терминал 2 - Клиент
 cd lct-client
 uv run jupyter notebook
+
+# Терминал 3 - АСО
+cd lct-ats
+uv run launcher.py --twin
 ```
+
 
 ### Для Linux
 
@@ -145,11 +148,9 @@ cd ../lct-client && uv sync
 
 #### Запуск:
 ```bash
-# Терминал 1 - АСО
-cd lct-ats
-uv run launcher.py --twin
 
-# Терминал 2 - Цифровой двойник
+
+# Терминал 1 - Цифровой двойник
 cd ~/Downloads/LCT_linux
 # Дадим права на выполнение
 chmod +x LCT.x86_64
@@ -157,9 +158,13 @@ chmod +x LCT.x86_64
 # Запустим цифровой двойник
 ./LCT.x86_64
 
-# Терминал 3 - Клиент
+# Терминал 2 - Клиент
 cd lct-client
 uv run jupyter notebook
+
+# Терминал 3 - АСО
+cd lct-ats
+uv run launcher.py --twin
 ```
 
 ## Цели безопасности
