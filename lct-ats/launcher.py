@@ -1,4 +1,11 @@
 import time
+import sys
+import os
+
+import sys
+print(sys.path)
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from Modules import HandlerDispatcher
 from Modules import Context
