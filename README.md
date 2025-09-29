@@ -143,8 +143,7 @@ unzip LCT_linux.zip && chmod +x LCT_linux/twin.x86_64
 git clone https://gitflic.ru/project/lct-prefinal/lct-ats.git
 git clone https://gitflic.ru/project/lct-prefinal/lct-client.git
 
-cd lct-ats && uv sync
-cd ../lct-client && uv sync
+
 ```
 
 #### Запуск:
