@@ -94,9 +94,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://gitflic.ru/project/lct-prefin
 git clone https://gitflic.ru/project/lct-prefinal/lct-ats.git
 git clone https://gitflic.ru/project/lct-prefinal/lct-client.git
 
-# Установка зависимостей
-cd lct-ats && uv sync
-cd ../lct-client && uv sync
+
 ```
 
 #### Запуск:
