@@ -78,52 +78,90 @@
 - Система связи АНТС–Диспетчер
 
 ## Установка и запуск
-
-### Для Windows
-
 #### Автоматическая установка:
 ```powershell
-### Автоматическая установка (рекомендуется)
-powershell
 powershell -ExecutionPolicy ByPass -c "irm https://gitflic.ru/project/lct-prefinal/lct-prefinal/blob/raw?file=scripts%2Finstall_win.ps1 | iex"
-Ручная установка
-1. Установка uv (менеджер пакетов Python)
-powershell
+```
+
+#### Ручная установка:
+```powershell
+# Установка uv
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-2. Клонирование репозиториев
-powershell
+
+# Клонирование репозиториев
 git clone https://gitflic.ru/project/lct-prefinal/lct-ats.git
 git clone https://gitflic.ru/project/lct-prefinal/lct-client.git
-3. Установка зависимостей
-powershell
-cd lct-ats
-uv sync
-cd ../lct-client
-uv sync
-4. Скачивание цифрового двойника
-Скачайте архив LCT_twin_win.zip и распакуйте его в папку ~/Downloads/LCT_twin_win
 
-🖥️ Запуск системы
-Запуск системы требует трёх отдельных терминалов:
+# Установка зависимостей
+cd lct-ats && uv sync
+cd ../lct-client && uv sync
+```
 
-Терминал 1 - Цифровой двойник
-powershell
+#### Запуск:
+```powershell
+
+
+# Терминал 1 - Цифровой двойник
 cd ~/Downloads/LCT_twin_win
-# Даем права на выполнение
+# Дадим права на выполнение
 chmod +x LCT.x86_64
-# Запускаем цифровой двойник
+
+# Запустим цифровой двойник
 ./LCT.x86_64
-Терминал 2 - Клиент (Jupyter Notebook)
-powershell
+
+# Терминал 2 - Клиент
 cd lct-client
 uv run jupyter notebook
-После запуска откройте браузер по адресу http://localhost:8888
 
-Терминал 3 - АСО (Автоматизированная система отслеживания)
-powershell
+# Терминал 3 - АСО
 cd lct-ats
 uv run launcher.py --twin
+```
 
+
+### Для Linux
+
+#### Автоматическая установка:
+```bash
+curl -LsSf "https://gitflic.ru/project/lct-prefinal/lct-prefinal/blob/raw?file=scripts%2Finstall_linux.sh" | sh
+```
+
+#### Ручная установка:
+```bash
+# Установка uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source ~/.bashrc
+
+# Скачивание компонентов
+wget "https://drive.hxps.ru/public/a2b4bcf3089b" -O LCT_linux.zip
+unzip LCT_linux.zip && chmod +x LCT_linux/twin.x86_64
+
+git clone https://gitflic.ru/project/lct-prefinal/lct-ats.git
+git clone https://gitflic.ru/project/lct-prefinal/lct-client.git
+
+cd lct-ats && uv sync
+cd ../lct-client && uv sync
+```
+
+#### Запуск:
+```bash
+
+
+# Терминал 1 - Цифровой двойник
+cd ~/Downloads/LCT_linux
+# Дадим права на выполнение
+chmod +x LCT.x86_64
+
+# Запустим цифровой двойник
+./LCT.x86_64
+
+# Терминал 2 - Клиент
+cd lct-client
+uv run jupyter notebook
+
+# Терминал 3 - АСО
+cd lct-ats
+uv run launcher.py --twin
 ```
 
 ## Цели безопасности
