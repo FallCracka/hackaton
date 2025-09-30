@@ -1,0 +1,12 @@
+-----------------------00:24-----------------------
+[00:24]::[LCT-ATS]::INIT::AGTS-ATS, версия 2.0.0
+[00:24]::[LCT-ATS]::INIT::UDP(c) <- (uid=IgHy) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) <- (uid=zKaE) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) <- (uid=Exvy) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) -> (uid=DeoA) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) -> (uid=BoOd) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) -> (uid=vfej) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) -> (uid=ifFg) инициализирован.
+[00:24]::[LCT-ATS]::INIT::UDP(c) -> (uid=YNrQ) инициализирован.
+[00:24]::[LCT-ATS]::INIT::Адрес сервера (mission_receiver): http://127.0.0.1:13501
+[00:24]::[LCT-ATS]::INIT::Загрузка завершена.
