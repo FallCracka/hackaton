@@ -11,16 +11,15 @@ class RenderHandler(BaseHandler):
     def __init__(self, context):
         super().__init__(context)
 
-        app = AppWindow(context)
+        self.app = AppWindow(context)
+
+    def run(self):
         try:
             arcade.run()
         except KeyboardInterrupt as e:
             self.context.lg.log("Нажмите ещё раз для выхода...")
         except Exception as e:
-            pass
-
-    def run(self):
-        pass
+            self.context.lg.error(f"Render run error: {e}")
 
 
 class AppWindow(arcade.Window):

@@ -14,7 +14,7 @@ class TwinPositionReceiveHandler(BaseUDPReceiveHandler):
             robot = self.context.robots.list[0]
             robot.move(message["position_x"] * 1000, message["position_y"] * 1000, message["rotation"])
         except Exception as e:
-            pass
+            self.context.lg.error(f"Position handler error: {e}")
 
 
 class TwinAutobotReceiveHandler(BaseUDPReceiveHandler):
@@ -28,7 +28,7 @@ class TwinAutobotReceiveHandler(BaseUDPReceiveHandler):
             robot = self.context.robots.list[1]
             robot.move(message["position_x"] * 1000, message["position_y"] * 1000, message["rotation"])
         except Exception as e:
-            pass
+            self.context.lg.error(f"Autobot position handler error: {e}")
 
 
 class TwinFillReceiveHandler(BaseUDPReceiveHandler):

@@ -133,6 +133,8 @@ class MissionHandler(BaseHandler):
         except Exception as e:
             if "timeout" in str(e):
                 self.context.lg.error(f"Ошибка отправки команды: робот не отвечает")
+            else:
+                self.context.lg.error(f"Request ack error: {e}")
         return False
 
     def send_request_with_response(self, method):
@@ -148,6 +150,8 @@ class MissionHandler(BaseHandler):
         except Exception as e:
             if "timeout" in str(e):
                 self.context.lg.error(f"Ошибка отправки команды: робот не отвечает")
+            else:
+                self.context.lg.error(f"Request response error: {e}")
         return {}
 
 
@@ -173,7 +177,7 @@ class HTTPMissionReceiver(BaseHttpTransport):
                 self.context.spd.brush.last_speed = datum["speed"]
                 return {"status": "OK"}
             except Exception as e:
-                pass
+                self.context.lg.error(f"Set brush speed error: {e}")
             return {"status": "ERROR", "content": "Неверный формат запроса: Ожидается {'speed': int}"}
 
         @self.api.post("/get_brush_speed")
@@ -215,7 +219,7 @@ class HTTPMissionReceiver(BaseHttpTransport):
                 self.context.mission.reboot_drive(d_id)
                 return {"status": "OK"}
             except Exception as e:
-                pass
+                self.context.lg.error(f"Drive force reset error: {e}")
             return {"status": "ERROR", "content": "Неверный формат запроса: Ожидается {'d_id': 'ID'}"}
 
         @self.api.post("/emergency_stop")

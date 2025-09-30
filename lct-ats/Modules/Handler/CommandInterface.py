@@ -23,9 +23,6 @@ class CommandInterface(BaseHandler):
         self.context.lg.log("Ожидаю ввод команд (/help для получения списка доступных команд)...")
 
         if not is_windows:
-            self.context.lg.warn(
-                "Интерактивный ввод команд поддерживается только в Windows. Используйте /q для выхода."
-            )
             while True:
                 try:
                     command = input("> ")
@@ -156,3 +153,4 @@ class CommandInterface(BaseHandler):
             self.context.lg.flush_batch()
         else:
             self.context.lg.error("Неизвестная команда: {}".format(command))
+
