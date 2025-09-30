@@ -1,15 +1,6 @@
 import time
-import sys
 
 from Modules import BaseHandler
-from rich.live import Live
-from rich.panel import Panel
-from rich.text import Text
-
-# Проверяем, является ли система Windows, и импортируем msvcrt
-is_windows = sys.platform == "win32"
-if is_windows:
-    import msvcrt
 
 
 class CommandInterface(BaseHandler):
@@ -22,66 +13,16 @@ class CommandInterface(BaseHandler):
         time.sleep(3)
         self.context.lg.log("Ожидаю ввод команд (/help для получения списка доступных команд)...")
 
-        if not is_windows:
-            self.context.lg.warn(
-                "Интерактивный ввод команд поддерживается только в Windows. Используйте /q для выхода."
-            )
-            while True:
-                try:
-                    command = input("> ")
-                    if command == "/q":
-                        break
-                    self.process_command(command)
-                except (KeyboardInterrupt, EOFError):
+        # Используем стандартный ввод для всех платформ
+        while True:
+            try:
+                command = input("> ")
+                if command == "/q":
                     break
-            return
-
-        command_buffer = ""
-
-        def get_renderable(text: str):
-            cursor = "█" if int(time.time() * 2) % 2 == 0 else " "
-            return Panel(Text(f"> {text}{cursor}", justify="left"), title="Командный ввод")
-
-        with Live(get_renderable(""), console=self.context.lg.cls, refresh_per_second=10) as live:
-            while True:
-                try:
-                    if msvcrt.kbhit():
-                        char = msvcrt.getwch()
-                        if char == "\r":  # Enter
-                            if command_buffer:
-                                self.process_command(command_buffer)
-                                if not self.command_history or self.command_history[-1] != command_buffer:
-                                    self.command_history.append(command_buffer)
-                                self.history_index = len(self.command_history)
-                                command_buffer = ""
-                        elif char == "\xe0":  # Special key (arrows)
-                            char = msvcrt.getwch()
-                            if char == "H":  # Up arrow
-                                if self.history_index > 0:
-                                    self.history_index -= 1
-                                    command_buffer = self.command_history[self.history_index]
-                            elif char == "P":  # Down arrow
-                                if self.history_index < len(self.command_history) - 1:
-                                    self.history_index += 1
-                                    command_buffer = self.command_history[self.history_index]
-                                elif self.history_index == len(self.command_history) - 1:
-                                    self.history_index += 1
-                                    command_buffer = ""
-                        elif char == "\x08":  # Backspace
-                            command_buffer = command_buffer[:-1]
-                        elif char == "\x03":  # Ctrl+C
-                            break
-                        else:
-                            command_buffer += char
-
-                    live.update(get_renderable(command_buffer))
-                    time.sleep(0.02)
-
-                except (KeyboardInterrupt, EOFError):
-                    break
-                except Exception as e:
-                    self.context.lg.error(f"Ошибка в цикле ввода: {e}")
-                    pass
+                self.process_command(command)
+            except (KeyboardInterrupt, EOFError):
+                break
+        return
 
     def process_command(self, command: str):
         self.context.lg.log(f"Выполнена команда: {command}")

@@ -17,7 +17,7 @@ class RenderHandler(BaseHandler):
         except KeyboardInterrupt as e:
             self.context.lg.log("Нажмите ещё раз для выхода...")
         except Exception as e:
-            pass
+            self.context.lg.error(f"Ошибка запуска окна рендеринга: {e}")
 
     def run(self):
         pass

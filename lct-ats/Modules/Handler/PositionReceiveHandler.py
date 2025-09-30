@@ -9,12 +9,11 @@ class TwinPositionReceiveHandler(BaseUDPReceiveHandler):
         super().__init__(context, host, port)
 
     def _process_message(self, message):
-        # print(random.randint(0, 10000), message)
         try:
             robot = self.context.robots.list[0]
             robot.move(message["position_x"] * 1000, message["position_y"] * 1000, message["rotation"])
         except Exception as e:
-            pass
+            self.context.lg.error(f"Ошибка обработки сообщения позиции робота: {e}")
 
 
 class TwinAutobotReceiveHandler(BaseUDPReceiveHandler):
@@ -23,12 +22,11 @@ class TwinAutobotReceiveHandler(BaseUDPReceiveHandler):
         super().__init__(context, host, port)
 
     def _process_message(self, message):
-        # print(random.randint(0, 10000), message)
         try:
             robot = self.context.robots.list[1]
             robot.move(message["position_x"] * 1000, message["position_y"] * 1000, message["rotation"])
         except Exception as e:
-            pass
+            self.context.lg.error(f"Ошибка обработки сообщения позиции автробота: {e}")
 
 
 class TwinFillReceiveHandler(BaseUDPReceiveHandler):

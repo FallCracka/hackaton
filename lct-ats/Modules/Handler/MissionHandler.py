@@ -173,7 +173,7 @@ class HTTPMissionReceiver(BaseHttpTransport):
                 self.context.spd.brush.last_speed = datum["speed"]
                 return {"status": "OK"}
             except Exception as e:
-                pass
+                self.context.lg.error(f"Ошибка установки скорости щётки: {e}")
             return {"status": "ERROR", "content": "Неверный формат запроса: Ожидается {'speed': int}"}
 
         @self.api.post("/get_brush_speed")
@@ -215,7 +215,7 @@ class HTTPMissionReceiver(BaseHttpTransport):
                 self.context.mission.reboot_drive(d_id)
                 return {"status": "OK"}
             except Exception as e:
-                pass
+                self.context.lg.error(f"Ошибка перезагрузки привода: {e}")
             return {"status": "ERROR", "content": "Неверный формат запроса: Ожидается {'d_id': 'ID'}"}
 
         @self.api.post("/emergency_stop")
