@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TWIN_DIR="../LCT_linux"
+TWIN_DIR="./LCT_linux"
 
 if [ ! -d "$TWIN_DIR" ]; then
   echo "Error: Digital Twin directory '$TWIN_DIR' not found."
@@ -9,7 +9,7 @@ if [ ! -d "$TWIN_DIR" ]; then
   exit 1
 fi
 
-(cd "$TWIN_DIR" && chmod +x twin.x86_64 && ./twin.x86_64 &)
+(cd "$TWIN_DIR" && chmod +x LCT.x86_64 && ./LCT.x86_64 &)
 echo "Digital Twin launched in background from '$TWIN_DIR'."
 
 gnome-terminal --title="ATS" -- bash -c "cd lct-ats; uv run launcher.py --twin; exec bash"
